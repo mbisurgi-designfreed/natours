@@ -1,0 +1,27 @@
+.center-text {
+    text-align: center !important;
+}
+
+.mb-small {
+    margin-bottom: 1.5rem !important;
+}
+
+.mb-medium {
+    margin-bottom: 4rem !important;
+
+    @include responsive(md) {
+        margin-bottom: 3rem !important;
+    }
+}
+
+.mb-large {
+    margin-bottom: 8rem !important;
+
+    @include responsive(md) {
+        margin-bottom: 5rem !important;
+    }
+}
+
+.mt-large {
+    margin-bottom: 8rem !important;
+}

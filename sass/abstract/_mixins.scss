@@ -1,0 +1,40 @@
+@mixin clearfix {
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin center-horizontal-vertical {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* MEDIA QUERIES MANAGER */
+
+/*
+    0 - 600px:     Phone            sm
+    600 - 900px:   Tablet portrait  md
+    900 - 1200px:  Table landscape  lg 
+    1200 - 1800px: Desktop
+    1800px +:      Big desktop      xl
+
+    Order: Base + Typo > General Layout + Grid > Page Layout > Components
+*/
+
+@mixin responsive-phone {
+    @media (max-width: 600px) { @content };
+}
+
+@mixin responsive($breakpoint) {
+    @if $breakpoint == xl {
+        @media only screen and (min-width: map-get($breakpoints, $breakpoint)) { @content };
+    }
+
+    @if $breakpoint != xl {
+        @media only screen and (max-width: map-get($breakpoints, $breakpoint)) { @content };
+    }
+}

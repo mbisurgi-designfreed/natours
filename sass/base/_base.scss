@@ -1,0 +1,42 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    /* use % to increase or reduce depending on user preference */
+    /* defines what 1rem is (1rem = 10px) */
+    font-size: 62.5%;
+
+    /* Unnecesary because its already given same font-size with max-width higher */
+    // @include responsive(sm) {
+    //     font-size: 50%; // 1rem = 8px, 8 / 16 = 50%
+    // }
+
+    @include responsive(lg) { // width < 1200?
+        font-size: 56.25%; // 1rem = 9px, 9 / 16 = 56.25%
+    }
+
+    @include responsive(md) { // width < 900?
+        font-size: 50%; // 1rem = 8px, 8 / 16 = 50%
+    }
+
+    @include responsive(xl) {
+        font-size: 75%; // 1rem = 12px, 12 / 16 = 75%
+    }
+}
+
+body {
+    box-sizing: border-box;
+    padding: 3rem;
+
+    @include responsive(md) {
+        padding: 0;
+    }
+}
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
